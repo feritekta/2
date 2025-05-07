@@ -1,2 +1,148 @@
-# 2
-hediye
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>doğu günün kutlu olsunn </title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(#aee1f9, #fff);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .track {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .train {
+      position: absolute;
+      right: -400px;
+      top: 100px;
+      width: 350px;
+      font-size: 64px;
+      animation: trainMove 6s linear forwards;
+    }
+
+    @keyframes trainMove {
+      0% {
+        right: -400px;
+      }
+      50% {
+        right: calc(50% - 175px);
+      }
+      100% {
+        right: 110%;
+      }
+    }
+
+    .letter {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      animation: dropLetter 6s ease-in-out forwards;
+      animation-delay: 2.9s;
+    }
+
+    @keyframes dropLetter {
+      0% {
+        transform: translateX(-50%) translateY(-30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: #fff0f5;
+      border: 3px solid #ff69b4;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ffc0cb;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transform: rotateX(0deg);
+      transition: transform 0.6s ease;
+      z-index: 2;
+    }
+
+    .paper {
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+      width: 90%;
+      height: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #d6336c;
+      line-height: 1.5;
+      overflow: hidden;
+      transition: height 0.7s ease, padding 0.7s ease;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope.open .paper {
+      height: 140px;
+      padding-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="track">
+    <div class="train">
+      🚂💨💨
+    </div>
+    <div class="letter">
+      <div class="envelope" id="env">
+        <div class="flap"></div>
+        <div class="paper">
+          selam aşkımmm 💖<br/>
+          doğum günün kutlu olsun birtanem 💌<br/>
+          Hep mutlu ol, yüzün hep gülsün! 🥳​🎉​​🎁​<br/>
+          iyiki varsın aşkım 🥰
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('env').classList.add('open');
+    }, 4000);
+  </script>
+</body>
+</html>
